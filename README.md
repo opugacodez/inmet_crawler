@@ -1,4 +1,4 @@
-#INMET (Instituto Nacional de Meteorologia) Crawler
+# INMET (Instituto Nacional de Meteorologia) Crawler
 
 Uma ferramenta que utiliza técnicas de web crawler para obter dados do portal do [Instituto Nacional de Meteorologia (INMET)](https://portal.inmet.gov.br/) através do uso da biblioteca `requests` em Python. O código automatiza o processo de extração de informações meteorológicas do INMET, fornecendo acesso a dados atualizados e precisos relacionados às condições climáticas em várias localidades do pais.
 
