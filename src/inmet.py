@@ -75,14 +75,14 @@ class inmet:
 
     def previsao_por_cidade(
         self,
-        geocode: str
+        geocode: int
     ) -> json:
         
         """
             Retorna os dados de previsão do tempo do dia atual e dos próximos 4 dias de uma cidade específica. 
 
             PARAMS:
-            - geocode: str -> código de localização da cidade encontrada no objeto retornado pelo método 'busca_cidade'.
+            - geocode: int -> código de localização da cidade encontrada no objeto retornado pelo método 'busca_cidade'.
         """
         
         response = self.session.get(self._API_PREV3 + '/previsao/%i' % geocode)
