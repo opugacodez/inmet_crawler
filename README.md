@@ -11,11 +11,11 @@ Usar o `inmet_crawler` é muito simples:
 
 ```python
 	
-	import inmet_crawler
+import inmet_crawler
     
-    cities = inmet_crawler.busca_cidade(nome_cidade='Sao Paulo')
-    sp = cities[0]
-    weather_forecast = inmet_crawler.previsao_por_cidade(geocode=sp['geocode'])
+cities = inmet_crawler.busca_cidade(nome_cidade='Sao Paulo')
+sp = cities[0]
+weather_forecast = inmet_crawler.previsao_por_cidade(geocode=sp['geocode'])
 	
 ```
 No exemplo acima:
