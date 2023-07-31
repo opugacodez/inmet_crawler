@@ -27,7 +27,7 @@ No exemplo acima:
 
 ## Observações
 
-`inmet_crawler` suporta oficialmente 3.7+.
+`inmet_crawler` suporta oficialmente Python 3.7+.
 
 O projeto está em fase inicial de testes e sua colaboração é muito importante para o seu desenvolvimento contínuo e aprimoramento. Caso você deseje contribuir com o projeto, existem várias maneiras pelas quais você pode participar:
 
