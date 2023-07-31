@@ -9,7 +9,7 @@ O projeto é desenvolvido sobre uma licença que incentiva outros desenvolvedore
 
 Usar o `inmet_crawler` é muito simples:
 
-    ```python
+```python
 	
 	import inmet_crawler
     
@@ -17,8 +17,7 @@ Usar o `inmet_crawler` é muito simples:
     sp = cities[0]
     weather_forecast = inmet_crawler.previsao_por_cidade(geocode=sp['geocode'])
 	
-    ```
-
+```
 No exemplo acima:
 
  1. O módulo `inmet_crawler` é importando.
