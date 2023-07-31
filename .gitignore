@@ -1,4 +1,6 @@
 __pycache__
+dist
+inmet_crawler.egg-info
 .Python
 [Bb]in
 [Ii]nclude
