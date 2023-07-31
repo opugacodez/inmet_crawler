@@ -2,6 +2,7 @@ import requests
 import urllib.parse
 
 __all__ = [
+    'session',
     'busca_cidade',
     'previsao_por_capital',
     'previsao_por_cidade',
@@ -13,7 +14,7 @@ _HEADERS = {
     'Content-Type': 'application/json;charset=utf-8',
 }
 
-_session = requests.Session()
+session = requests.Session()
 
 def _parse_response(response: requests.Response) -> list | dict:
         try:
@@ -35,7 +36,7 @@ def busca_cidade(nome_cidade: str) -> list | dict:
         - nome_cidade: str -> nome da cidade para busca.
     """
     url = f'{_API_PREV3}/autocomplete/{urllib.parse.quote(nome_cidade)}'
-    response = _session.get(url, headers=_HEADERS)
+    response = session.get(url, headers=_HEADERS)
     return _parse_response(response)
 
 def previsao_por_capital() -> dict:
@@ -44,7 +45,7 @@ def previsao_por_capital() -> dict:
         Retorna os dados de previsão do tempo atual e dos próximos 4 dias de todas as capitais do país.
     """
     url = f'{_API_PREV3}/previsao/capitais'
-    response = _session.get(url, headers=_HEADERS)
+    response = session.get(url, headers=_HEADERS)
     return _parse_response(response)
 
 def previsao_por_cidade(geocode: int) -> dict:
@@ -56,7 +57,7 @@ def previsao_por_cidade(geocode: int) -> dict:
         - geocode: int -> código de localização da cidade encontrada no objeto retornado pelo método 'busca_cidade'.
     """
     url = f'{_API_PREV3}/previsao/{geocode}'
-    response = _session.get(url, headers=_HEADERS)
+    response = session.get(url, headers=_HEADERS)
     return _parse_response(response)
 
 def estacao_proxima(geocode: int) -> dict:
@@ -69,5 +70,5 @@ def estacao_proxima(geocode: int) -> dict:
         - geocode: int -> código de localização da cidade encontrada no objeto retornado pelo método 'busca_cidade'.
     """
     url = f'{_API_PREV3}/estacao/proxima/{geocode}'
-    reponse = _session.get(url, headers=_HEADERS)
+    reponse = session.get(url, headers=_HEADERS)
     return _parse_response(reponse)
