@@ -1,3 +1,8 @@
+"""
+    `inmet_crawler` allows the extraction of meteorological data from the website of the
+    [National Institute of Meteorology (INMET)](https://portal.inmet.gov.br/) through its own APIs.
+"""
+
 import requests
 import urllib.parse
 
@@ -30,10 +35,12 @@ def _parse_response(response: requests.Response) -> list | dict:
 def busca_cidade(nome_cidade: str) -> list | dict:
     
     """
-        Retorna informações sobre uma ou mais cidades a partir do nome fornecido.
 
-        PARAMS:
-        - nome_cidade: str -> nome da cidade para busca.
+        Return information about one or more cities based on the provided name.
+
+        Params:
+        - nome_cidade: str -> city name for the search.
+        
     """
     url = f'{_API_PREV3}/autocomplete/{urllib.parse.quote(nome_cidade)}'
     response = session.get(url, headers=_HEADERS)
@@ -42,7 +49,8 @@ def busca_cidade(nome_cidade: str) -> list | dict:
 def previsao_por_capital() -> dict:
 
     """
-        Retorna os dados de previsão do tempo atual e dos próximos 4 dias de todas as capitais do país.
+        Return the weather forecast data for the current day and the next 4 days for all capital
+        cities of the country.
     """
     url = f'{_API_PREV3}/previsao/capitais'
     response = session.get(url, headers=_HEADERS)
@@ -51,10 +59,10 @@ def previsao_por_capital() -> dict:
 def previsao_por_cidade(geocode: int) -> dict:
     
     """
-        Retorna os dados de previsão do tempo do dia atual e dos próximos 4 dias de uma cidade específica. 
+        Returns the weather forecast data for the current day and the next 4 days of a sepcific city
 
-        PARAMS:
-        - geocode: int -> código de localização da cidade encontrada no objeto retornado pelo método 'busca_cidade'.
+        Params:
+        - geocode: int -> Geolocaltion code of the city found in the object returned by the `busca_cidade` function.
     """
     url = f'{_API_PREV3}/previsao/{geocode}'
     response = session.get(url, headers=_HEADERS)
@@ -63,11 +71,11 @@ def previsao_por_cidade(geocode: int) -> dict:
 def estacao_proxima(geocode: int) -> dict:
 
     """
-        Retorna informações de uma estação meteorológica automática localizada em ou próximo da geolocalização
-        do município informado, com base no código de localização (geocode), juntamente com os dados do tempo no  intervalo UTC atual.
+        Returns information about an automatic meteorological station located near the
+        geolocation of the specified city, along with the current UTC weather data.
 
-        PARAMS:
-        - geocode: int -> código de localização da cidade encontrada no objeto retornado pelo método 'busca_cidade'.
+        Params:
+        - geocode: int -> Geolocaltion code of the city found in the object returned by the `busca_cidade` function.
     """
     url = f'{_API_PREV3}/estacao/proxima/{geocode}'
     reponse = session.get(url, headers=_HEADERS)
