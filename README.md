@@ -9,11 +9,15 @@ O projeto é desenvolvido sobre uma licença que incentiva outros desenvolvedore
 
 Usar o `inmet_crawler` é muito simples:
 
-    import inmet_crawler
+    ```python
+	
+	import inmet_crawler
     
     cities = inmet_crawler.busca_cidade(nome_cidade='Sao Paulo')
     sp = cities[0]
     weather_forecast = inmet_crawler.previsao_por_cidade(geocode=sp['geocode'])
+	
+    ```
 
 No exemplo acima:
 
